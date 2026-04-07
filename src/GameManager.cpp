@@ -1,5 +1,6 @@
 #include <iostream>
 #include "GameManager.h"
+#include "HandEvaluator.h"
 void GameManager::runSession(){
 std::cout << "=== Run Started ===\n";
 handGenerator.generateHand();
