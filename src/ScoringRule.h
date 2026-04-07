@@ -1,5 +1,7 @@
 #pragma once
-class ScoringRule{
+#include <string>
+
+class ScoringRule {
 public:
-int scoreHand();
+    int scoreHand(const std::string& handName);
 };
