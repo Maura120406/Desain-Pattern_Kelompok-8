@@ -2,17 +2,16 @@
 
 #include "RoyalFlushChecker.h"
 #include "StraightFlushChecker.h"
-#include "FourOfAKindChecker.h"
+#include "FourOfKindChecker.h"
 #include "FullHouseChecker.h"
 #include "FlushChecker.h"
 #include "StraightChecker.h"
-#include "ThreeOfAKindChecker.h"
 #include "TwoPairChecker.h"
 #include "PairChecker.h"
-
-#include "FiveOfAKindChecker.h"
+#include "FiveOfKindChecker.h"
 #include "FlushHouseChecker.h"
 #include "LowStraightChecker.h"
+#include "ThreeOfKindChecker.h"
 
 std::string HandEvaluator::evaluate(const std::vector<Card>& cards) {
 
