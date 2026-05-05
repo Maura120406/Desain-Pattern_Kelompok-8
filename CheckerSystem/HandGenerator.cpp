@@ -17,7 +17,7 @@ std::vector<Card> HandGenerator::generateHand() {
 
     std::shuffle(deck.begin(), deck.end(), std::default_random_engine(std::time(0)));
   
-    std::vector<Card> hand(deck.begin(), deck.begin() + 5);
+    std::vector<Card> hand(deck.begin(), deck.begin() + 8);
 
     return hand;
 }
