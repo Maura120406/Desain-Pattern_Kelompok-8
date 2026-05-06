@@ -15,14 +15,14 @@
 
 std::string HandEvaluator::evaluate(const std::vector<Card>& cards) {
 
-    FiveOfAKindChecker five;
+    FiveOfKindChecker five;
     RoyalFlushChecker royal;
     StraightFlushChecker sf;
-    FourOfAKindChecker fk;
+    FourOfKindChecker fk;
     FullHouseChecker fh;
     FlushChecker fl;
     StraightChecker st;
-    ThreeOfAKindChecker tk;
+    ThreeOfKindChecker tk;
     TwoPairChecker tp;
     PairChecker p;
     FlushHouseChecker fh2;

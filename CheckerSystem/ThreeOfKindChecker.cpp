@@ -1,7 +1,7 @@
-#include "ThreeOfAKindChecker.h"
+#include "ThreeOfKindChecker.h"
 #include <map>
 
-bool ThreeOfAKindChecker::check(const std::vector<Card>& cards) {
+bool ThreeOfKindChecker::check(const std::vector<Card>& cards) {
     std::map<int, int> count;
 
     for (auto& c : cards)

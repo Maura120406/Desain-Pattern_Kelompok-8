@@ -1,7 +1,7 @@
-#include "FiveOfAKindChecker.h"
+#include "FiveOfKindChecker.h"
 #include <map>
 
-bool FiveOfAKindChecker::check(const std::vector<Card>& cards) {
+bool FiveOfKindChecker::check(const std::vector<Card>& cards) {
     std::map<int, int> count;
 
     for (auto& c : cards)

@@ -2,7 +2,7 @@
 #include <vector>
 #include "Card.h"
 
-class FiveOfAKindChecker {
+class FiveOfKindChecker {
 public:
     bool check(const std::vector<Card>& cards);
 };

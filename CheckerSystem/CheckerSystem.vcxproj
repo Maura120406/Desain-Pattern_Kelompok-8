@@ -123,30 +123,44 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BlindRule.h" />
+    <ClInclude Include="Card.h" />
     <ClInclude Include="FiveOfKindChecker.h" />
     <ClInclude Include="FlushChecker.h" />
     <ClInclude Include="FlushHouseChecker.h" />
     <ClInclude Include="FourOfKindChecker.h" />
     <ClInclude Include="FullHouseChecker.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="HandEvaluator.h" />
+    <ClInclude Include="HandGenerator.h" />
+    <ClInclude Include="HandPlayer.h" />
     <ClInclude Include="LowStraightChecker.h" />
     <ClInclude Include="PairChecker.h" />
+    <ClInclude Include="RewardRule.h" />
     <ClInclude Include="RoyalFlushChecker.h" />
+    <ClInclude Include="ScoringRule.h" />
     <ClInclude Include="StraightChecker.h" />
     <ClInclude Include="StraightFlushChecker.h" />
     <ClInclude Include="ThreeOfKindChecker.h" />
     <ClInclude Include="TwoPairChecker.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BlindRule.cpp" />
     <ClCompile Include="FiveOfKindChecker.cpp" />
     <ClCompile Include="FlushChecker.cpp" />
     <ClCompile Include="FlushHouseChecker.cpp" />
     <ClCompile Include="FourOfKindChecker.cpp" />
     <ClCompile Include="FullHouseChecker.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="HandEvaluator.cpp" />
+    <ClCompile Include="HandGenerator.cpp" />
+    <ClCompile Include="HandPlayer.cpp" />
     <ClCompile Include="LowStraightChecker.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="PairChecker.cpp" />
+    <ClCompile Include="RewardRule.cpp" />
     <ClCompile Include="RoyalFlushChecker.cpp" />
+    <ClCompile Include="ScoringRule.cpp" />
     <ClCompile Include="StraightChecker.cpp" />
     <ClCompile Include="StraightFlushChecker.cpp" />
     <ClCompile Include="ThreeOfKindChecker.cpp" />
