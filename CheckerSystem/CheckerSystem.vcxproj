@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClInclude Include="BlindRule.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="ChosenHand.h" />
     <ClInclude Include="FiveOfKindChecker.h" />
     <ClInclude Include="FlushChecker.h" />
     <ClInclude Include="FlushHouseChecker.h" />
@@ -134,10 +135,15 @@
     <ClInclude Include="HandEvaluator.h" />
     <ClInclude Include="HandGenerator.h" />
     <ClInclude Include="HandPlayer.h" />
+    <ClInclude Include="HandState.h" />
+    <ClInclude Include="Joker.h" />
     <ClInclude Include="LowStraightChecker.h" />
+    <ClInclude Include="MultiplierJoker.h" />
     <ClInclude Include="PairChecker.h" />
+    <ClInclude Include="PlayerHandResult.h" />
     <ClInclude Include="RewardRule.h" />
     <ClInclude Include="RoyalFlushChecker.h" />
+    <ClInclude Include="ScoreContext.h" />
     <ClInclude Include="ScoringRule.h" />
     <ClInclude Include="StraightChecker.h" />
     <ClInclude Include="StraightFlushChecker.h" />
@@ -146,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BlindRule.cpp" />
+    <ClCompile Include="ChosenHand.cpp" />
     <ClCompile Include="FiveOfKindChecker.cpp" />
     <ClCompile Include="FlushChecker.cpp" />
     <ClCompile Include="FlushHouseChecker.cpp" />
@@ -155,9 +162,12 @@
     <ClCompile Include="HandEvaluator.cpp" />
     <ClCompile Include="HandGenerator.cpp" />
     <ClCompile Include="HandPlayer.cpp" />
+    <ClCompile Include="HandState.cpp" />
     <ClCompile Include="LowStraightChecker.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MultiplierJoker.cpp" />
     <ClCompile Include="PairChecker.cpp" />
+    <ClCompile Include="PlayerHandResult.cpp" />
     <ClCompile Include="RewardRule.cpp" />
     <ClCompile Include="RoyalFlushChecker.cpp" />
     <ClCompile Include="ScoringRule.cpp" />

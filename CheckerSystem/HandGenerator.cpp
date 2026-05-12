@@ -21,3 +21,29 @@ std::vector<Card> HandGenerator::generateHand() {
 
     return hand;
 }
+std::vector<Card> HandGenerator::drawCards(int amount) {
+    std::vector<Card> deck;
+
+    std::vector<std::string> suits = {
+        "H","D","C","S"
+    };
+
+    for (int rank = 2; rank <= 14; rank++) {
+        for (const auto& suit : suits) {
+            deck.push_back(Card(rank, suit));
+        }
+    }
+
+    std::shuffle(
+        deck.begin(),
+        deck.end(),
+        std::default_random_engine(
+            static_cast<unsigned int>(std::time(0))
+        )
+    );
+
+    return std::vector<Card>(
+        deck.begin(),
+        deck.begin() + amount
+    );
+}
