@@ -3,5 +3,10 @@
 
 class Joker {
 public:
-    virtual void apply(ScoreContext& context) = 0;
+
+    virtual void apply(
+        ScoreContext& context
+    ) = 0;
+
+    virtual const char* getName() const = 0;
 };

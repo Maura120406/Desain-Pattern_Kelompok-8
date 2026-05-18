@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BlindRule.h" />
+    <ClInclude Include="BonusJoker.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="ChosenHand.h" />
     <ClInclude Include="FiveOfKindChecker.h" />
@@ -137,6 +138,8 @@
     <ClInclude Include="HandPlayer.h" />
     <ClInclude Include="HandState.h" />
     <ClInclude Include="Joker.h" />
+    <ClInclude Include="JokerEvaluator.h" />
+    <ClInclude Include="JokerManager.h" />
     <ClInclude Include="LowStraightChecker.h" />
     <ClInclude Include="MultiplierJoker.h" />
     <ClInclude Include="PairChecker.h" />
@@ -152,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BlindRule.cpp" />
+    <ClCompile Include="BonusJoker.cpp" />
     <ClCompile Include="ChosenHand.cpp" />
     <ClCompile Include="FiveOfKindChecker.cpp" />
     <ClCompile Include="FlushChecker.cpp" />
@@ -163,6 +167,8 @@
     <ClCompile Include="HandGenerator.cpp" />
     <ClCompile Include="HandPlayer.cpp" />
     <ClCompile Include="HandState.cpp" />
+    <ClCompile Include="JokerEvaluator.cpp" />
+    <ClCompile Include="JokerManager.cpp" />
     <ClCompile Include="LowStraightChecker.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MultiplierJoker.cpp" />
