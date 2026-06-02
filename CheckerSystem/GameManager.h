@@ -4,6 +4,8 @@
 #include "ScoringRule.h"
 #include "BlindRule.h"
 #include "RewardRule.h"
+#include "JokerManager.h"
+#include "JokerEvaluator.h"
 
 class GameManager {
 public:
@@ -15,4 +17,5 @@ private:
     ScoringRule scoringRule;
     BlindRule blindRule;
     RewardRule rewardRule;
+    JokerManager jokerManager;
 };
