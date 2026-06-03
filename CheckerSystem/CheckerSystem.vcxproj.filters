@@ -102,6 +102,21 @@
     <ClInclude Include="BonusJoker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HybridJoker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RichJoker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleJoker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MegaMultiplierJoker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LuckyJoker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PairChecker.cpp">
@@ -183,6 +198,21 @@
       <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BonusJoker.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LuckyJoker.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MegaMultiplierJoker.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HybridJoker.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RichJoker.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleJoker.cpp">
       <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
   </ItemGroup>

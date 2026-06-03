@@ -13,10 +13,8 @@ void GameManager::run() {
 
     std::cout << "=== GAME START ===\n";
 
-    // =========================
     // Generate Hand
-    // =========================
-
+ 
     std::vector<Card> hand =
         handGenerator.generateHand();
 
@@ -24,19 +22,15 @@ void GameManager::run() {
 
     handPlayer.playHand();
 
-    // =========================
     // Chosen Hand
-    // =========================
-
+  
     std::vector<Card> selected =
         handPlayer.getSelectedHand();
 
     HandState handState(selected);
 
-    // =========================
     // Show Chosen Hand
-    // =========================
-
+  
     std::cout << "\nCurrent Chosen Hand:\n";
 
     for (int i = 0;
@@ -50,10 +44,8 @@ void GameManager::run() {
             << "\n";
     }
 
-    // =========================
     // Discard
-    // =========================
-
+    
     int discardCount;
 
     std::cout
@@ -79,10 +71,8 @@ void GameManager::run() {
         );
     }
 
-    // =========================
     // Remove Discarded Cards
-    // =========================
-
+  
     std::vector<Card> currentHand =
         handState.getCards();
 
@@ -98,9 +88,7 @@ void GameManager::run() {
         );
     }
 
-    // =========================
     // Draw Cards
-    // =========================
 
     std::vector<Card> redrawCards =
         handGenerator.drawCards(
@@ -120,9 +108,7 @@ void GameManager::run() {
             << "\n";
     }
 
-    // =========================
     // Choose Redraw Cards
-    // =========================
 
     std::vector<Card> chosenRedraw;
 
@@ -144,10 +130,8 @@ void GameManager::run() {
         );
     }
 
-    // =========================
     // Build Final Hand
-    // =========================
-
+   
     for (const auto& card :
         chosenRedraw) {
 
@@ -156,10 +140,8 @@ void GameManager::run() {
 
     HandState finalHand(currentHand);
 
-    // =========================
     // Show Final Hand
-    // =========================
-
+  
     std::cout << "\nFinal Hand:\n";
 
     for (const auto& card :
@@ -173,10 +155,8 @@ void GameManager::run() {
 
     std::cout << std::endl;
 
-    // =========================
     // Evaluate Final Hand
-    // =========================
-
+  
     std::string result =
         HandEvaluator::evaluate(
             finalHand.getCards()
@@ -187,10 +167,8 @@ void GameManager::run() {
         << result
         << std::endl;
 
-    // =========================
     // Base Score
-    // =========================
-
+   
     int baseScore =
         scoringRule.scoreHand(result);
 
@@ -199,9 +177,9 @@ void GameManager::run() {
         baseScore
     );
 
-    // =========================
+  
     // Joker System
-    // =========================
+
 
     ScoreContext context;
 
@@ -212,9 +190,8 @@ void GameManager::run() {
         context
     );
 
-    // =========================
     // Final Score
-    // =========================
+  
 
     int finalScore =
         (playedResult.getBaseScore()
@@ -231,9 +208,9 @@ void GameManager::run() {
         << finalScore
         << std::endl;
 
-    // =========================
+  
     // Reward
-    // =========================
+   
 
     bool win =
         blindRule.checkBlind(finalScore);
