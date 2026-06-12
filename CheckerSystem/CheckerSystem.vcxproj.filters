@@ -117,6 +117,30 @@
     <ClInclude Include="LuckyJoker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BlindState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SmallBlindState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BigBlindState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBlindState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RewardCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BonusHandCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FreePlayingCardCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RuntimeSession.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PairChecker.cpp">
@@ -213,6 +237,24 @@
       <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DoubleJoker.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SmallBlindState.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BigBlindState.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBlindState.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BonusHandCommand.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreePlayingCardCommand.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RuntimeSession.cpp">
       <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
   </ItemGroup>

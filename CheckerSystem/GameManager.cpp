@@ -8,10 +8,86 @@
 #include "HandState.h"
 #include "JokerManager.h"
 #include "JokerEvaluator.h"
+#include "RuntimeSession.h"
+#include "BlindState.h"
+#include "RewardCommand.h"
 
-void GameManager::run() {
+void GameManager::run()
+{
+    bool playing = true;
+
+    while (playing)
+    {
+        playRound();
+
+        char answer;
+
+        std::cout
+            << "\nLanjut ke blind berikutnya? (y/n): ";
+
+        std::cin >> answer;
+
+        if (answer != 'y')
+        {
+            playing = false;
+        }
+    }
+}
+
+void GameManager::playRound() {
 
     std::cout << "=== GAME START ===\n";
+
+    std::cout
+        << "Current Blind: "
+        << session.currentBlind
+        ->getName()
+        << std::endl;
+
+    std::cout
+        << "Target Score: "
+        << session.currentBlind
+        ->getTargetScore()
+        << std::endl;
+
+    std::cout
+        << "\n1. Play\n";
+
+    std::cout
+        << "2. Skip\n";
+
+    int choice;
+
+    std::cin >> choice;
+
+    // Skip
+
+    if (choice == 2) {
+
+        auto reward =
+            session.currentBlind
+            ->createSkipReward();
+
+        session.pendingCommands
+            .push_back(reward);
+
+        std::cout
+            << "Blind Skipped!\n";
+
+        session.currentBlind =
+            session.currentBlind
+            ->nextState();
+
+        for (auto& cmd :
+            session.pendingCommands) {
+
+            cmd->execute(session);
+        }
+
+        session.pendingCommands.clear();
+
+        return;
+    }
 
     // Generate Hand
  
@@ -190,6 +266,7 @@ void GameManager::run() {
         context
     );
 
+
     // Final Score
   
 
@@ -213,17 +290,76 @@ void GameManager::run() {
    
 
     bool win =
-        blindRule.checkBlind(finalScore);
+        finalScore >=
+        session.currentBlind
+        ->getTargetScore();
 
     int reward =
         rewardRule.earnMoney(
             win,
             finalScore
         );
+    session.money += reward;
+
+    if (win) {
+
+        std::cout
+            << "Blind Cleared!\n";
+
+        session.money +=
+            session.currentBlind
+            ->getRewardMoney();
+
+        session.currentBlind =
+            session.currentBlind
+            ->nextState();
+    }
+
+    if (!session.pendingCommands.empty()) {
+
+        std::cout
+            << "\nExecuting Rewards...\n";
+
+        for (auto& cmd :
+            session.pendingCommands) {
+
+            cmd->execute(
+                session
+            );
+        }
+
+        session.pendingCommands.clear();
+    }
 
     std::cout
-        << "Money gained: "
-        << reward
+        << "Money: "
+        << session.money
+        << std::endl;
+
+    std::cout
+        << "Bonus Chips: "
+        << context.bonusChips
+        << std::endl;
+
+    std::cout
+        << "Multiplier: "
+        << context.scoreMultiplier
+        << std::endl;
+
+    std::cout
+        << "Remaining Hands: "
+        << session.remainingHands
+        << std::endl;
+
+    std::cout
+        << "Remaining Discards: "
+        << session.remainingDiscards
+        << std::endl;
+
+    std::cout
+        << "Next Blind: "
+        << session.currentBlind
+        ->getName()
         << std::endl;
 
     std::cout

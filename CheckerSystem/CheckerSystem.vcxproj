@@ -123,8 +123,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BigBlindState.h" />
     <ClInclude Include="BlindRule.h" />
+    <ClInclude Include="BlindState.h" />
+    <ClInclude Include="BonusHandCommand.h" />
     <ClInclude Include="BonusJoker.h" />
+    <ClInclude Include="BossBlindState.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="ChosenHand.h" />
     <ClInclude Include="DoubleJoker.h" />
@@ -132,6 +136,7 @@
     <ClInclude Include="FlushChecker.h" />
     <ClInclude Include="FlushHouseChecker.h" />
     <ClInclude Include="FourOfKindChecker.h" />
+    <ClInclude Include="FreePlayingCardCommand.h" />
     <ClInclude Include="FullHouseChecker.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="HandEvaluator.h" />
@@ -148,25 +153,32 @@
     <ClInclude Include="MultiplierJoker.h" />
     <ClInclude Include="PairChecker.h" />
     <ClInclude Include="PlayerHandResult.h" />
+    <ClInclude Include="RewardCommand.h" />
     <ClInclude Include="RewardRule.h" />
     <ClInclude Include="RichJoker.h" />
     <ClInclude Include="RoyalFlushChecker.h" />
+    <ClInclude Include="RuntimeSession.h" />
     <ClInclude Include="ScoreContext.h" />
     <ClInclude Include="ScoringRule.h" />
+    <ClInclude Include="SmallBlindState.h" />
     <ClInclude Include="StraightChecker.h" />
     <ClInclude Include="StraightFlushChecker.h" />
     <ClInclude Include="ThreeOfKindChecker.h" />
     <ClInclude Include="TwoPairChecker.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BigBlindState.cpp" />
     <ClCompile Include="BlindRule.cpp" />
+    <ClCompile Include="BonusHandCommand.cpp" />
     <ClCompile Include="BonusJoker.cpp" />
+    <ClCompile Include="BossBlindState.cpp" />
     <ClCompile Include="ChosenHand.cpp" />
     <ClCompile Include="DoubleJoker.cpp" />
     <ClCompile Include="FiveOfKindChecker.cpp" />
     <ClCompile Include="FlushChecker.cpp" />
     <ClCompile Include="FlushHouseChecker.cpp" />
     <ClCompile Include="FourOfKindChecker.cpp" />
+    <ClCompile Include="FreePlayingCardCommand.cpp" />
     <ClCompile Include="FullHouseChecker.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="HandEvaluator.cpp" />
@@ -186,7 +198,9 @@
     <ClCompile Include="RewardRule.cpp" />
     <ClCompile Include="RichJoker.cpp" />
     <ClCompile Include="RoyalFlushChecker.cpp" />
+    <ClCompile Include="RuntimeSession.cpp" />
     <ClCompile Include="ScoringRule.cpp" />
+    <ClCompile Include="SmallBlindState.cpp" />
     <ClCompile Include="StraightChecker.cpp" />
     <ClCompile Include="StraightFlushChecker.cpp" />
     <ClCompile Include="ThreeOfKindChecker.cpp" />

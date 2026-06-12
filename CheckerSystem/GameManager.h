@@ -6,10 +6,12 @@
 #include "RewardRule.h"
 #include "JokerManager.h"
 #include "JokerEvaluator.h"
+#include "RuntimeSession.h"
 
 class GameManager {
 public:
     void run();
+    void playRound();
 
 private:
     HandGenerator handGenerator;
@@ -18,4 +20,5 @@ private:
     BlindRule blindRule;
     RewardRule rewardRule;
     JokerManager jokerManager;
+    RuntimeSession session;
 };
