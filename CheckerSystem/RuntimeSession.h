@@ -12,6 +12,7 @@ public:
     int ante;
     int totalScore;
     int money;
+    int currentBlindScore;
 
     int remainingHands;
     int remainingDiscards;

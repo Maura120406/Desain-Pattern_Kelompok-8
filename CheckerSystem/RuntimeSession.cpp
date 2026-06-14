@@ -9,6 +9,8 @@ RuntimeSession::RuntimeSession() {
 
     money = 0;
 
+    currentBlindScore = 0;
+
     remainingHands = 4;
 
     remainingDiscards = 3;

@@ -18,12 +18,12 @@ void GameManager::run()
 
     while (playing)
     {
-        playRound();
+        playBlind();
 
         char answer;
 
         std::cout
-            << "\nLanjut ke blind berikutnya? (y/n): ";
+            << "\nContinue Playing? (y/n): ";
 
         std::cin >> answer;
 
@@ -34,9 +34,83 @@ void GameManager::run()
     }
 }
 
-void GameManager::playRound() {
+void GameManager::playBlind()
+{
+    while (
+        session.remainingHands > 0 &&
+        session.currentBlindScore <
+        session.currentBlind->getTargetScore()
+        )
+    {
+        playRound();
+    }
+
+    bool win =
+        session.currentBlindScore >=
+        session.currentBlind->getTargetScore();
+
+    if (win)
+    {
+        std::cout
+            << "\nBlind Cleared!\n";
+
+        session.money +=
+            session.currentBlind
+            ->getRewardMoney();
+
+        if (!session.pendingCommands.empty())
+        {
+            std::cout
+                << "\nExecuting Rewards...\n";
+
+            for (auto& cmd :
+                session.pendingCommands)
+            {
+                cmd->execute(session);
+            }
+
+            session.pendingCommands.clear();
+        }
+
+        session.currentBlind =
+            session.currentBlind->nextState();
+
+        session.currentBlindScore = 0;
+        session.remainingHands = 4;
+        session.remainingDiscards = 3;
+
+        std::cout
+            << "Money: "
+            << session.money
+            << std::endl;
+
+        std::cout
+            << "Next Blind: "
+            << session.currentBlind->getName()
+            << std::endl;
+    }
+    else
+    {
+        std::cout
+            << "\nBlind Failed!\n";
+    }
+}
+
+int GameManager::playRound() {
 
     std::cout << "=== GAME START ===\n";
+
+    std::cout
+        << "Current Progress: "
+        << session.currentBlindScore
+        << "/"
+        << session.currentBlind->getTargetScore()
+        << std::endl;
+
+    std::cout
+        << "Hands Left: "
+        << session.remainingHands
+        << std::endl;
 
     std::cout
         << "Current Blind: "
@@ -86,11 +160,11 @@ void GameManager::playRound() {
 
         session.pendingCommands.clear();
 
-        return;
+        return 0;
     }
 
     // Generate Hand
- 
+
     std::vector<Card> hand =
         handGenerator.generateHand();
 
@@ -99,14 +173,14 @@ void GameManager::playRound() {
     handPlayer.playHand();
 
     // Chosen Hand
-  
+
     std::vector<Card> selected =
         handPlayer.getSelectedHand();
 
     HandState handState(selected);
 
     // Show Chosen Hand
-  
+
     std::cout << "\nCurrent Chosen Hand:\n";
 
     for (int i = 0;
@@ -121,7 +195,7 @@ void GameManager::playRound() {
     }
 
     // Discard
-    
+
     int discardCount;
 
     std::cout
@@ -148,7 +222,7 @@ void GameManager::playRound() {
     }
 
     // Remove Discarded Cards
-  
+
     std::vector<Card> currentHand =
         handState.getCards();
 
@@ -207,7 +281,7 @@ void GameManager::playRound() {
     }
 
     // Build Final Hand
-   
+
     for (const auto& card :
         chosenRedraw) {
 
@@ -217,7 +291,7 @@ void GameManager::playRound() {
     HandState finalHand(currentHand);
 
     // Show Final Hand
-  
+
     std::cout << "\nFinal Hand:\n";
 
     for (const auto& card :
@@ -232,7 +306,7 @@ void GameManager::playRound() {
     std::cout << std::endl;
 
     // Evaluate Final Hand
-  
+
     std::string result =
         HandEvaluator::evaluate(
             finalHand.getCards()
@@ -244,7 +318,7 @@ void GameManager::playRound() {
         << std::endl;
 
     // Base Score
-   
+
     int baseScore =
         scoringRule.scoreHand(result);
 
@@ -253,7 +327,7 @@ void GameManager::playRound() {
         baseScore
     );
 
-  
+
     // Joker System
 
 
@@ -268,12 +342,16 @@ void GameManager::playRound() {
 
 
     // Final Score
-  
 
     int finalScore =
         (playedResult.getBaseScore()
             + context.bonusChips)
         * context.scoreMultiplier;
+
+    session.currentBlindScore +=
+        finalScore;
+
+    session.remainingHands--;
 
     std::cout
         << "Multiplier: "
@@ -285,55 +363,17 @@ void GameManager::playRound() {
         << finalScore
         << std::endl;
 
-  
-    // Reward
-   
-
-    bool win =
-        finalScore >=
-        session.currentBlind
-        ->getTargetScore();
-
-    int reward =
-        rewardRule.earnMoney(
-            win,
-            finalScore
-        );
-    session.money += reward;
-
-    if (win) {
-
-        std::cout
-            << "Blind Cleared!\n";
-
-        session.money +=
-            session.currentBlind
-            ->getRewardMoney();
-
-        session.currentBlind =
-            session.currentBlind
-            ->nextState();
-    }
-
-    if (!session.pendingCommands.empty()) {
-
-        std::cout
-            << "\nExecuting Rewards...\n";
-
-        for (auto& cmd :
-            session.pendingCommands) {
-
-            cmd->execute(
-                session
-            );
-        }
-
-        session.pendingCommands.clear();
-    }
+    std::cout
+        << "Blind Progress: "
+        << session.currentBlindScore
+        << "/"
+        << session.currentBlind
+        ->getTargetScore()
+        << std::endl;
 
     std::cout
-        << "Money: "
-        << session.money
+        << "Hands Left: "
+        << session.remainingHands
         << std::endl;
 
     std::cout
@@ -347,21 +387,7 @@ void GameManager::playRound() {
         << std::endl;
 
     std::cout
-        << "Remaining Hands: "
-        << session.remainingHands
-        << std::endl;
+        << "=== HAND END ===\n";
 
-    std::cout
-        << "Remaining Discards: "
-        << session.remainingDiscards
-        << std::endl;
-
-    std::cout
-        << "Next Blind: "
-        << session.currentBlind
-        ->getName()
-        << std::endl;
-
-    std::cout
-        << "=== GAME END ===\n";
+    return finalScore;
 }

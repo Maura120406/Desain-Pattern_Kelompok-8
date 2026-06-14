@@ -11,7 +11,8 @@
 class GameManager {
 public:
     void run();
-    void playRound();
+    void playBlind();
+    int playRound();
 
 private:
     HandGenerator handGenerator;
